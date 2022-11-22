@@ -6,28 +6,27 @@ import About from './components/AboutUs/About';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './components/Login/Login';
 import LoginAdmin from './components/Login/LoginAdmin';
+import LoginUser from './components/Login/LoginUser';
+import Verify from './components/Admin/Verify';
 import Upload from './components/Admin/Upload';
-import Verification from './components/Admin/Verification';
 import Retrieve from './components/Admin/Retrieve';
+
+
 function App() {
   return (
     <div>
-        
-        {/* <Home></Home>
-         <Upload></Upload>
-          <Verification/>  
-          */}
-        {/* <LoginAdmin/>*/}
-        
-
-
-        <Retrieve/>
-        <Upload/>
-        <Verification/>
-
-
-        
-    
+         <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home></Home>}></Route>
+                <Route path="login" element={<Login/>}></Route>
+                <Route path="loginAdmin" element={<LoginAdmin/>}></Route>
+                <Route path="loginUser" element={<LoginUser/>}></Route>
+                <Route path="verify" element={<Verify/>}></Route>
+                <Route path="upload" element={<Upload/>}></Route>
+                <Route path="retrieve" element={<Retrieve></Retrieve>}></Route>
+              </Routes>
+         </BrowserRouter>
+         
     </div>
   );
 }

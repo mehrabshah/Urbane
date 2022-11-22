@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { BiMenu } from 'react-icons/bi';
 import {ImCross } from 'react-icons/im';
 import { useState } from "react";
@@ -18,14 +19,8 @@ export default function Header(props) {
            setServices(false);
     }
     
-
-
-
     return (
-
-                
-           
-        <>
+            <>
           {props.Nav &&  (<ImCross size={15} className="absolute top-5 left-[36rem] fill-white  sm:hidden"  onClick={props.funcNav}></ImCross>)}  
           {!props.Nav && (<BiMenu size={30} className="absolute top-2 left-2 fill-white  sm:hidden" onClick={props.funcNav} ></BiMenu>)}
             <div className='sm:h-[5.5rem]   bg-black w-screen h-[2.7rem] md:rounded-t-[5rem] md:mt-5 md:border-x-[#fff] md:border-x-[24px]'>
@@ -43,23 +38,22 @@ export default function Header(props) {
                {props.Nav && (<div className='flex flex-col h-screen bg-black / justify-evenly items-center text-4xl / z-10'>
                     <div className='text-white '>Home</div>
                     <div className='text-white'>About</div>
-                    <div className='text-white'  >Services</div>
+                    <div className='text-white'  > Services</div>
                     <div className='text-white'>Connect Wallet</div>
                 </div>)}
             </div>
-            {services && (<div className=' bg-black  h-36 w-72 absolute  shadow-2xl  shadow-stone-400 left-[60.5rem]  top-[4.2rem] '>
+            {services && (<div className=' bg-black  h-48 w-72 absolute  shadow-2xl  shadow-stone-400 left-[60.5rem]  top-[5.4rem] '>
                 <ul className='flex flex-col items-center pt-5  / text-lime-400 / space-y-3'>
-                 <li className='/ cursor-pointer  '>Document Verification</li>           
+                 <li className='/ cursor-pointer  '><Link to="/login">Document Verification</Link></li>           
                  <li className='/ cursor-pointer'>Rental Contract</li> 
                  <li className='/ cursor-pointer'>Ownership Transfer</li>
 
                 </ul>
             </div>)}
-            {about && (<div className=' bg-black  h-36 / / w-44 absolute  shadow-2xl  shadow-stone-400 left-[53.5rem] / top-[4.2rem]'>
+            {about && (<div className=' bg-black  h-36  w-44 absolute  shadow-2xl  shadow-stone-400 left-[53.5rem] / top-[5.4rem]'>
                 <ul className='flex flex-col items-center / pt-10  / text-lime-400 / space-y-3 text-2xl'>
                  <li className='/ cursor-pointer'>About Us</li>           
-                 <li className='/ cursor-pointer'>Team</li> 
-                
+                 <li className='/ cursor-pointer'>Team</li>    
                 </ul>
             </div>)}
 
