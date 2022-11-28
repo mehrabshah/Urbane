@@ -2,19 +2,32 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 export default function Verify() {
-    const [state , setState] = useState({
-        firstname : "",
-        lastname : "",
-        cnin :"",
-        dob :"",
-      })
-      const handleChange = (e) => {
-        const {id , value} = e.target   
+    const [state, setState] = useState({
+        firstname: "",
+        lastname: "",
+        cnin: "",
+        dob: "",
+    })
+    const handleChange = (e) => {
+        const { id, value } = e.target
         setState(prevState => ({
             ...prevState,
-            [id] : value
+            [id]: value
         }))
     }
+    const optionsArea = ["Select Area", "Dummy1", "Dummy2"];
+    const [Area, setArea] = useState(optionsArea[0]);
+    const optionsBlock = ["Select Block", "Dummy1", "Dummy2"];
+    const [Block, setBlock] = useState(optionsBlock[0]);
+    const optionsPlot = ["Select Plot", "Dummy1", "Dummy2"];
+    const [Plot, setPlot] = useState(optionsPlot[0]);
+    const Verify=()=>
+    {
+
+
+        
+    }
+
 
 
     return (
@@ -37,15 +50,39 @@ export default function Verify() {
                         <div className='flex items-center justify-end pt-8'>
                             <div className='flex / items-center justify-center bg-[#226597] text-[#fff] w-[28rem] h-8'><h1>Upload Document to Decentralized Storage</h1></div>
                         </div>
-                        <div className='flex items-center justify-center / pt-20'>
-                            <div className='flex items-center justify-center bg-[#fff]  / w-60 h-10 border-2 / border-[#113F67]' >
-                                <h1>Select Area</h1>
+                        <div className='flex items-center justify-center / pt-20 space-x-2'>
+                            <div className='flex items-center justify-center' >
+                                <div>
+                                    <select value={Plot} onChange={(e) => setPlot(e.target.value)} className="h-10 w-60 bg-[#fff]">
+                                        {optionsPlot.map((value) => (
+                                            <option value={value} key={value}>
+                                                {value}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
-                            <div className='flex items-center justify-center bg-[#fff] w-60 h-10 border-2 / border-[#113F67]'>
-                                <h1>Select Block</h1>
+                            <div className='flex items-center justify-center'>
+                                <div>
+                                    <select value={Area} onChange={(e) => setArea(e.target.value)} className="h-10 w-60 bg-[#fff]">
+                                        {optionsArea.map((value) => (
+                                            <option value={value} key={value}>
+                                                {value}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
-                            <div className='flex items-center justify-center bg-[#fff] w-60    h-10 border-2 / border-[#113F67]'>
-                                <h1>Select Plot</h1>
+                            <div className='flex items-center justify-center'>
+                                <div>
+                                    <select value={Block} onChange={(e) => setBlock(e.target.value)} className="h-10 w-60 bg-[#fff]">
+                                        {optionsBlock.map((value) => (
+                                            <option value={value} key={value}>
+                                                {value}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div className='flex items-center justify-enstart pt-16'>
@@ -55,26 +92,26 @@ export default function Verify() {
                             <div className='flex flex-row items-center justify-center gap-7'>
                                 <div className='flex flex-row items-center / justify-between gap-7'>
                                     <label for="peas" className='text-black'>First Name</label>
-                                    <input type="text" name="peas" id="peas" className='/ w-[12rem] h-7 rounded-md' value={state.firstname}  onChange={handleChange} />
+                                    <input type="text" name="peas" id="peas" className='/ w-[12rem] h-7 rounded-md' value={state.firstname} onChange={handleChange} />
                                 </div>
                                 <div className='flex flex-row / items-center justify-center  gap-7'>
                                     <label for="peas" className='text-black'>Last Name</label>
-                                    <input type="text" name="peas" id="peas" className='w-[12rem] h-7 / rounded-md' value={state.lastname}  onChange={handleChange}/>
+                                    <input type="text" name="peas" id="peas" className='w-[12rem] h-7 / rounded-md' value={state.lastname} onChange={handleChange} />
                                 </div>
                             </div>
                             <div className='flex flex-row items-center justify-center gap-7'>
                                 <div className='flex flex-row items-center / justify-between '>
                                     <label for="peas" className='text-black'>CNIC</label>
-                                    <input type="text" name="peas" id="peas" className='/ w-[12rem] h-7 rounded-md ml-[4.8rem]' value={state.cnic}  onChange={handleChange}/>
+                                    <input type="text" name="peas" id="peas" className='/ w-[12rem] h-7 rounded-md ml-[4.8rem]' value={state.cnic} onChange={handleChange} />
                                 </div>
                                 <div className='flex flex-row / items-center justify-center '>
                                     <label for="peas" className='text-black`'>Date of Birth</label>
-                                    <input type="text" name="peas" id="peas" className='w-[12rem] h-7 / rounded-md ml-3' value={state.dob}  onChange={handleChange}/>
+                                    <input type="text" name="peas" id="peas" className='w-[12rem] h-7 / rounded-md ml-3' value={state.dob} onChange={handleChange} />
                                 </div>
                             </div>
                         </div>
                         <div className='flex flex-row / justify-evenly ml-[29.5rem]  items-center pt-20'>
-                            <button className='/ bg-green-600 text-[#fff] w-36 h-10'>Verify</button>
+                            <button className='/ bg-green-600 text-[#fff] w-36 h-10' onSubmit={Verify()}>Verify</button>
                         </div>
                     </div>
                 </div>

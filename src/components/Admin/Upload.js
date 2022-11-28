@@ -1,6 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useState } from "react";
 export default function Upload() {
+  const optionsArea = ["Area", "Dummy1", "Dummy2"];
+  const [Area, setArea] = useState(optionsArea[0]);
+  const optionsBlock = ["Block", "Dummy1", "Dummy2"];
+  const [Block, setBlock] = useState(optionsBlock[0]);
+  const optionsPlot = ["Plot", "Dummy1", "Dummy2"];
+  const [Plot, setPlot] = useState(optionsPlot[0]);
+  const optionsDocument = ["Document", "Dummy1", "Dummy2"];
+  const [Document, setMonth] = useState(optionsDocument[0]);
+  const Upload=()=>
+  {
+
+  }
+  const Reset=()=>
+  {
+
+    
+  }
+
+
+
+
   return (
     <>
       <div className=' h-screen w-screen bg-[#87C0CD] '>
@@ -21,18 +43,54 @@ export default function Upload() {
             <div className='flex items-center justify-end pt-8'>
               <div className='flex / items-center justify-center bg-[#113F67] text-[#fff] / w-[24rem] h-8'><h1>Ownership Verification</h1></div>
             </div>
-            <div className='flex items-center justify-center / pt-20'>
-              <div className='flex items-center justify-center bg-[#fff] w-28 / h-10 border-2 / border-[#113F67]' >
-                <h1>Area</h1>
+            <div className='flex items-center justify-center / pt-20 space-x-1'>
+              <div className='flex items-center justify-center' >
+                <div>
+                  <select value={Area} onChange={(e) => setArea(e.target.value)} className="h-10 w-32 bg-[#fff]">
+                    {optionsArea.map((value) => (
+                      <option value={value} key={value}>
+                        {value}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
-              <div className='flex items-center justify-center bg-[#fff] w-28 h-10 border-2 / border-[#113F67]'>
-                <h1>Block</h1>
+              <div className='flex items-center justify-center '>
+                <div>
+                  <select value={Block} onChange={(e) => setBlock(e.target.value)} className="h-10 w-32 bg-[#fff]">
+                    {optionsBlock.map((value) => (
+                      <option value={value} key={value}>
+                        {value}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
-              <div className='flex items-center justify-center bg-[#fff] w-28 h-10 border-2 / border-[#113F67]'>
-                <h1>Plot</h1>
+
+              <div className='flex items-center justify-center'>
+                <div>
+                  <select value={Plot} onChange={(e) => setBlock(e.target.value)} className="h-10 w-32 bg-[#fff]">
+                    {optionsPlot.map((value) => (
+                      <option value={value} key={value}>
+                        {value}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
               </div>
-              <div className='flex items-center justify-center bg-[#fff] w-48 h-10 border-2 / border-[#113F67]'>
-                <h1>Document Type</h1>
+              <div className='flex items-center justify-center '>
+                <div>
+                  <select value={Document} onChange={(e) => setBlock(e.target.value)} className="h-10 w-60 bg-[#fff]">
+                    {optionsDocument.map((value) => (
+                      <option value={value} key={value}>
+                        {value}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+
               </div>
               <div className='flex items-center justify-center / w-44 h-10 border-2 border-[#113F67] / bg-[#113F67] text-[#fff]'>
                 <h1>...Attach file</h1>
@@ -40,11 +98,11 @@ export default function Upload() {
             </div>
             <div className='flex items-center  justify-center pt-32 / gap-96'>
               <div className='flex items-center justify-center / bg-green-600 / w-40 h-8'>
-                <button className='text-[#fff] font-normal'>UPLOAD</button>
+                <button className='text-[#fff] font-normal' onSubmit={Upload()}>UPLOAD</button>
               </div>
               <div>
                 <div className='flex items-center justify-center bg-red-800 w-40 h-8'>
-                  <button className='text-[#fff] / font-normal'>RESET</button>
+                  <button className='text-[#fff] / font-normal' onSubmit={Reset()}>RESET</button>
                 </div>
               </div>
             </div>
